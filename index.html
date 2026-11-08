@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sevil’in Kına Gecesi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap">
+<style>
+:root{--paper:#f8f1e6;--ink:#4a0d19;--mut:#7d5a60;--wine:#6e1423;--wine2:#4a0d19;--gold:#c3a15b;--milk:#f8f1e6;--card:#fffdf9;--line:rgba(195,161,91,.6);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#240910;--ink:#f5ebdd;--mut:#c9aeb0;--card:#33101a}}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);overflow:hidden}
+body{background:var(--paper);color:var(--ink);font:400 19px/1.65 "Cormorant Garamond",Georgia,serif;text-align:center}
+section{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 28px;gap:20px;position:relative}
+.wine{background:radial-gradient(120% 80% at 50% 0,var(--wine),var(--wine2));color:var(--milk);--ink:var(--milk);--mut:#e3cfc9}
+.pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='none' stroke='%23c3a15b' stroke-opacity='.22' stroke-width='1.2'%3E%3Cpath d='M20 8C9 13 7 30 15 38c6 6 18 2 18-8 0-8-8-10-8-4 0 4 4 4 4 2'/%3E%3Ccircle cx='44' cy='14' r='2'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3C/svg%3E")}
+.script{font-family:"Pinyon Script","Snell Roundhand",cursive;color:var(--gold);line-height:1.05}
+.names{font-size:clamp(54px,16vw,92px)}
+.amp{font-style:italic;font-size:28px;color:var(--mut)}
+.rule{width:110px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+p.small{color:var(--mut);font-style:italic;font-size:20px;max-width:32ch}
+h2{font-weight:600;font-size:26px;color:var(--ink)}
+/* opening */
+#veil{position:fixed;inset:0;z-index:50;background:radial-gradient(120% 80% at 50% 0,var(--wine),var(--wine2));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;color:var(--milk);clip-path:circle(150% at 50% 50%);transition:clip-path 1.4s cubic-bezier(.7,0,.2,1),visibility 0s 1.4s}
+#veil.open{clip-path:circle(0 at 50% 50%);visibility:hidden}
+#seal{width:128px;height:128px;border-radius:50%;border:1px solid var(--gold);background:transparent;color:var(--milk);font:italic 19px/1.3 "Cormorant Garamond",serif;cursor:pointer;box-shadow:0 0 0 8px rgba(195,161,91,.12)}
+#seal:hover,#seal:focus-visible{background:rgba(195,161,91,.18);outline:2px solid var(--gold);outline-offset:6px}
+/* henna plate */
+.plate{width:min(250px,70vw);animation:spin 80s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.plate-wrap{position:relative;display:grid;place-items:center}
+.plate-wrap .t{position:absolute;font-size:38px}
+/* date */
+.arch{width:min(290px,84vw);border:1px solid var(--gold);border-radius:999px 999px 8px 8px;padding:64px 20px 32px;background:var(--card);box-shadow:0 0 0 7px var(--paper),0 0 0 8px var(--line)}
+.day{font-size:100px;line-height:.9;color:var(--wine);font-weight:600}
+.arch .m{font-size:27px;letter-spacing:.3em;margin-top:8px;color:var(--wine)}
+.arch .t{color:var(--mut);margin-top:6px}
+.btn{display:inline-block;padding:13px 26px;border:1px solid var(--gold);color:var(--ink);text-decoration:none;border-radius:999px;font:600 18px "Cormorant Garamond",serif;background:transparent;cursor:pointer;transition:background .25s,color .25s}
+.btn:hover,.btn:focus-visible{background:var(--gold);color:var(--wine2);outline:none}
+.btn.fill{background:var(--wine);border-color:var(--wine);color:var(--milk)}
+.wine .btn.fill{background:var(--gold);border-color:var(--gold);color:var(--wine2)}
+.btn.fill:hover,.btn.fill:focus-visible{background:var(--wine2);color:var(--milk)}
+/* countdown */
+.cd{display:flex;gap:12px}
+.cd div{width:70px;padding:14px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.cd b{display:block;font-size:34px;color:var(--wine);font-weight:600;font-variant-numeric:tabular-nums}
+.cd span{font-size:15px;color:var(--mut)}
+/* program */
+.tl{list-style:none;padding:0 0 0 34px;position:relative;text-align:left;display:grid;gap:22px;max-width:320px;width:100%}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tl li{position:relative}
+.tl li::before{content:"";position:absolute;left:-32px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:1px solid var(--gold)}
+.tl b{color:var(--wine);font-weight:600;margin-right:10px}
+.speech{max-width:34ch;font-size:21px}
+.rsvp{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+#hint{position:fixed;left:0;right:0;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:5;color:var(--gold);font-style:italic;font-size:16px;pointer-events:none;animation:pulse 2.4s infinite ease-in-out;transition:opacity .5s}
+#hint.off{opacity:0;animation:none}
+@keyframes pulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+
+<div id="veil">
+  <div class="script" style="font-size:44px">Sevil’in kına gecesi</div>
+  <button id="seal" type="button">Davetiyeyi aç</button>
+</div>
+
+<section class="wine pat">
+  <div class="plate-wrap">
+    <svg class="plate" viewBox="0 0 200 200" fill="none" stroke="#c3a15b" aria-hidden="true">
+      <circle cx="100" cy="100" r="96" stroke-width="1"/>
+      <circle cx="100" cy="100" r="88" stroke-width="1" stroke-dasharray="2 5"/>
+      <g stroke-width="1.1">
+        <ellipse cx="100" cy="42" rx="9" ry="22"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(30 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(60 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(90 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(120 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(150 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(180 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(210 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(240 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(270 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(300 100 100)"/><ellipse cx="100" cy="42" rx="9" ry="22" transform="rotate(330 100 100)"/>
+      </g>
+      <circle cx="100" cy="100" r="40" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="script names">Sevil’in</div>
+  <div class="script" style="font-size:clamp(40px,12vw,64px)">kına gecesi</div>
+</section>
+
+<section>
+  <p class="small">Mutluluğumuzu paylaşmanız için sizi davet ediyoruz</p>
+  <div class="arch">
+    <div class="day">9</div>
+    <div class="m">ARALIK</div>
+    <div class="t">2026 · Çarşamba</div>
+    <div class="script" style="font-size:48px;margin-top:14px">18:00</div>
+  </div>
+  <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sevil%E2%80%99in+k%C4%B1na+gecesi&dates=20261209T150000Z/20261209T200000Z&details=K%C4%B1na+gecesi+davetiyesi">Takvime ekle</a>
+</section>
+
+<section class="wine pat">
+  <h2>Kınaya kalan süre</h2>
+  <div class="cd" role="timer" aria-live="off">
+    <div><b id="d">00</b><span>gün</span></div>
+    <div><b id="h">00</b><span>saat</span></div>
+    <div><b id="m">00</b><span>dakika</span></div>
+    <div><b id="s">00</b><span>saniye</span></div>
+  </div>
+  <p class="small" id="cdmsg">Bu geceyi birlikte renklendirelim.</p>
+</section>
+
+<section class="wine pat">
+  <h2>Mekân</h2>
+  <div class="script" style="font-size:40px">İstanbul Hall</div>
+  <p class="small">Çağlayan Mh. 2037 Sk.<br>İstanbul Park No 5/19 · Antalya</p>
+  <a class="btn fill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%C3%87a%C4%9Flayan+Mh.+2037+Sk.+%C4%B0stanbul+Park+No+5%2F19+Antalya">Yol tarifi al</a>
+</section>
+
+<section>
+  <div class="script" style="font-size:46px">Sizi bekliyoruz</div>
+  <p class="speech">Hayatımızın bu özel gecesinde sizleri aramızda görmekten büyük mutluluk duyacağız. Kınamızın neşesini ve dualarını sevdiklerimizle birlikte paylaşmak istiyoruz. Varlığınız bu geceye anlam katacak.</p>
+  <p class="small">Будем счастливы видеть вас среди наших гостей.</p>
+  <div class="rule"></div>
+  <p class="script" style="font-size:36px">Alihan Ailesi</p>
+</section>
+
+<div id="hint">Devam etmek için ekrana dokunun</div>
+
+<script>
+(function(){
+  var veil=document.getElementById('veil'),opened=false,hint=document.getElementById('hint'),secs=[].slice.call(document.querySelectorAll('section'));
+  document.getElementById('seal').addEventListener('click',function(){veil.classList.add('open');setTimeout(function(){opened=true},1500)});
+  function cur(){var y=window.scrollY+10,k=0;secs.forEach(function(s,n){if(s.offsetTop<=y)k=n});return k}
+  function upd(){hint.classList.toggle('off',!opened||cur()>=secs.length-1)}
+  document.addEventListener('click',function(ev){
+    if(!opened||ev.target.closest('a,button'))return;
+    var n=secs[cur()+1];if(n&&!busy)go(n.offsetTop);
+  });
+  var busy=false;
+  function go(to){var from=window.scrollY,d=to-from,t0=null,D=2000;busy=true;
+    function f(t){if(t0===null)t0=t;var k=Math.min((t-t0)/D,1),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;window.scrollTo(0,from+d*e);if(k<1)requestAnimationFrame(f);else busy=false}
+    requestAnimationFrame(f)}
+  document.addEventListener('touchmove',function(ev){ev.preventDefault()},{passive:false});
+  window.addEventListener('scroll',upd);setInterval(upd,500);
+  var T=new Date('2026-12-09T18:00:00+03:00').getTime();
+  function p(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var t=T-Date.now();
+    if(t<=0){t=0;document.getElementById('cdmsg').textContent='Bugün kına gecesi!'}
+    document.getElementById('d').textContent=p(Math.floor(t/864e5));
+    document.getElementById('h').textContent=p(Math.floor(t/36e5)%24);
+    document.getElementById('m').textContent=p(Math.floor(t/6e4)%60);
+    document.getElementById('s').textContent=p(Math.floor(t/1e3)%60);
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
